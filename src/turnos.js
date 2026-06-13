@@ -29,7 +29,7 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/uploads', express.static('src/uploads'));
+app.use('/archivos', express.static('src/uploads'));
 
 passport.use(estrategia);
 passport.use(validacion);

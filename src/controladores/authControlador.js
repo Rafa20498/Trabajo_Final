@@ -39,7 +39,7 @@ export default class AuthControlador {
             if (!req.file) {
                 return res.status(400).json({ estado: false, mensaje: 'Debe seleccionar una imagen' });
             }
-            const foto_path = '/uploads/' + req.file.filename;
+            const foto_path = '/archivos/' + req.file.filename;
             await this.usuarios.actualizarFoto(req.user.id_usuario, foto_path);
             res.status(200).json({ estado: true, mensaje: 'Foto subida correctamente', foto_path });
         } catch (error) {
