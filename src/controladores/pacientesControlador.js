@@ -34,7 +34,7 @@ export default class PacientesControlador {
             if (filas === 0) {
                 return res.status(404).json({ estado: false, mensaje: 'Paciente no encontrado' });
             }
-            res.status(200).json({ estado: true, mensaje: 'Paciente modificado' });
+            res.status(200).json({ estado: true, mensaje: 'Obra social asignada' });
         } catch (error) {
             console.log(`Error en PUT /pacientes/:id: ${error}`);
             res.status(500).json({ estado: false, mensaje: 'Error interno' });

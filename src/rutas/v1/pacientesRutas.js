@@ -59,7 +59,7 @@ router.get('/:id_paciente',
  * @swagger
  * /pacientes/{id_paciente}:
  *   put:
- *     summary: Modificar paciente (Admin)
+ *     summary: Cambiar obra social del paciente (Admin)
  *     tags: [Pacientes]
  *     security:
  *       - bearerAuth: []
@@ -80,7 +80,7 @@ router.get('/:id_paciente',
  *                 type: integer
  *     responses:
  *       200:
- *         description: Paciente modificado
+ *         description: Obra social asignada
  *       404:
  *         description: Paciente no encontrado
  */
@@ -89,7 +89,7 @@ router.put('/:id_paciente',
         passport.authenticate('jwt', { session: false }),
         validarRoles(3),
         param('id_paciente', 'El parámetro debe ser entero').isInt(),
-        check('id_obra_social').optional().isInt().withMessage('Debe ser entero.'),
+        check('id_obra_social', 'La obra social es obligatoria.').notEmpty().isInt(),
         validarCampos
     ],
     pacientes.modificar
